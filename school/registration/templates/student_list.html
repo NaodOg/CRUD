@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Department</td>
+            <td>
+                <a href="{% url 'form'  %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus">+</i> Add new
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in student_list %}
+        <tr>
+            <td>{{student.firstname}}</td>
+            <td>{{student.lastname}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.department}}</td>
+            <td>
+                <a href="{% url 'edit' student.id %}" class="btn text-secondary">
+                    <i class="fas fa-edit ">Edit</i>
+                </a>
+                <a href="{% url 'delete' student.id %}" class="btn text-secondary">
+                    <i class="far fa-trash fa lg">Remove</i>
+                </a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+{% endblock content %}

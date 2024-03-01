@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {%csrf_token%}
+   <div>{{form}}</div> 
+
+   <div class="row">
+    <div class="col-md-6">
+        <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa-solid fa-database">Submit</i></button>
+    </div>
+    <div class="col-md-3">
+        <a href="{% url 'list' %}" class="btn btn-secondary btn-block btn-lg">
+            <i class="far fa-stream fa-lg">Back to List</i>
+        </a>
+    </div>
+   </div>
+
+</form>
+{% endblock content %}
